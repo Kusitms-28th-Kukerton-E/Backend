@@ -62,6 +62,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: ddd
+        run: ls -al .
+
       - name: SCP Command to Transfer Files
         uses: appleboy/scp-action@v0.1.4
         with:
