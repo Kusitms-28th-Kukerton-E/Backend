@@ -62,8 +62,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: ddd
-        run: ls -al .
+      - name: Checkout
+        uses: actions/checkout@v4.1.0
 
       - name: SCP Command to Transfer Files
         uses: appleboy/scp-action@v0.1.4
