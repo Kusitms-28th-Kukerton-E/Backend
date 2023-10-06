@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SCP Command to Transfer Files
-        uses: appleboy/scp-action@v0.1.6
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{secrets.EC2_HOST}}
           key: ${{secrets.EC2_PRIVATE_KEY}}
