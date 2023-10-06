@@ -1,6 +1,8 @@
 version: '3'
+
 services:
   spring:
+    container_name: kukerton
     image: kukertone/backend:latest
     ports:
       - 8080:8080
