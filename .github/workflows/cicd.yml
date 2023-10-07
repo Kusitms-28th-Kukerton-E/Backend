@@ -35,20 +35,13 @@ jobs:
 
       - name: Create application-dev.yml
         env:
-          APPLICATION_SECRET: ${{secrets.APPLICATION_DEV}}
+          APPLICATION_DEV: ${{secrets.APPLICATION_DEV}}
         run: echo $APPLICATION_DEV | base64 --decode > src/main/resources/application-dev.yml
-
-      - run : cat src/main/resources/application-dev.yml
-
-
 
       - name: Create application-jwt.yml
         env:
-          APPLICATION_SECRET: ${{secrets.APPLICATION_JWT}}
+          APPLICATION_JWT: ${{secrets.APPLICATION_JWT}}
         run: echo $APPLICATION_JWT | base64 --decode > src/main/resources/application-jwt.yml
-
-      - run: cat src/main/resources/application-jwt.yml
-
 
       - name: Grant execute permission for gradlew
         run: chmod u+x gradlew
