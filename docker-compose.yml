@@ -1,8 +1,23 @@
 version: '3'
 
 services:
+  redis:
+    container_name: redis-kukerton
+    hostname: redis
+    image: redis:latest
+    ports:
+      - 6379:6379
+    networks:
+      - kukerton_network
+
   spring:
     container_name: kukerton
     image: kukertone/cicd:latest
     ports:
       - 8080:8080
+    networks:
+      - kukerton_network
+
+networks:
+  kukerton_network:
+    driver: bridge
