@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-@OpenAPIDefinition(servers = {@Server(url = "https://api/yeongjin.site"), @Server(url = "http://localhost:8080")})
+@OpenAPIDefinition(servers = {@Server(url = "https://api.yeongjin.site"), @Server(url = "http://localhost:8080")})
 @SpringBootApplication
 public class KukertoneBeApplication {
 	public static void main(String[] args) {
