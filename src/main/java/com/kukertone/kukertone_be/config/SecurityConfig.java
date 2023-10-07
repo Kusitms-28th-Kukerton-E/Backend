@@ -67,6 +67,7 @@ public class SecurityConfig {
                     .requestMatchers(mvcMatcherBuilder.pattern("/swagger-ui/**")).permitAll()
                     .requestMatchers(mvcMatcherBuilder.pattern("/swagger-resources/**")).permitAll()
                     .requestMatchers(mvcMatcherBuilder.pattern("/v3/api-docs/**")).permitAll()
+                    .requestMatchers(mvcMatcherBuilder.pattern("/api/articles/**")).permitAll()
                     .anyRequest().authenticated())
             .addFilterAfter(customJsonUsernamePasswordAuthenticationFilter(), LogoutFilter.class)
             .addFilterBefore(jwtAuthenticationProcessingFilter(), CustomJsonAuthenticationFilter.class)
