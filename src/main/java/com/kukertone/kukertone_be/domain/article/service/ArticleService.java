@@ -31,29 +31,6 @@ public class ArticleService {
         return new ArticleResponse(article);
     }
 
-    public void create(ArticleRequest articleRequest) {
-        Article article = Article.builder()
-                .title(articleRequest.getTitle())
-                .content(articleRequest.getContent())
-                .category(articleRequest.getCategory())
-                .organization(null)//수정해야함
-                .build();
-        articleRepository.save(article);
-    }
-
-    @Transactional
-    public void update(Long articleId, ArticleRequest articleRequest) {
-        Article article = articleRepository.findById(articleId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 데이터입니다"));
-        article.update(articleRequest.getTitle(), articleRequest.getContent(), articleRequest.getCategory());
-    }
-
-    public void delete(Long articleId) {
-        Article article = articleRepository.findById(articleId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 데이터입니다"));
-        articleRepository.delete(article);
-    }
-
     public ArticleListResponse getAllByCategory(Category category) {
         List<ArticleResponse> articleResponses = articleRepository.findByCategory(category).stream()
                 .map(ArticleResponse::new)

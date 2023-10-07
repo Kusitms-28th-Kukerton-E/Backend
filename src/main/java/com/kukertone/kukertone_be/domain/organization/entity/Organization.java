@@ -24,9 +24,6 @@ public class Organization extends Member {
     private List<OrganizationReview> organizationReviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
-    private List<Article> articles = new ArrayList<>();
-
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
     private List<VolunteerReview1> volunteerReview1s = new ArrayList<>();
 
     @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)

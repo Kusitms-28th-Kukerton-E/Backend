@@ -26,34 +26,28 @@ public class Article {
 
     private String title;
 
-    private String content;
-
-    @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private Long hour;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id")
-    private Organization organization;
+    private String teacher;
 
+    private String orga;
+
+    private String people;
+
+    private String st;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     private List<ArticleWithVolunteer> articleWithVolunteers = new ArrayList<>();
 
-    public void update(String title, String content, Category category){
-        this.title=title;
-        this.content=content;
-        this.category=category;
-    }
-
     @Builder
-    public Article(String title, String content, Organization organization, Category category) {
+    public Article(String title, Long hour, Category category) {
         this.title = title;
-        this.content = content;
-        this.organization = organization;
+        this.hour = hour;
         this.category = category;
     }
 }
