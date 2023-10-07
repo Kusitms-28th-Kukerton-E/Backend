@@ -1,13 +1,9 @@
 package com.kukertone.kukertone_be.domain.volunteer.entity;
 
-import com.kukertone.kukertone_be.domain.articlewithvolunteer.entity.ArticleWithVolunteer;
 import com.kukertone.kukertone_be.domain.kid.entity.Kid;
 import com.kukertone.kukertone_be.domain.member.entity.Member;
 import com.kukertone.kukertone_be.domain.member.entity.Role;
 import com.kukertone.kukertone_be.domain.organization.entity.Organization;
-import com.kukertone.kukertone_be.domain.organizationReview.entity.OrganizationReview;
-import com.kukertone.kukertone_be.domain.volunteerReview1.entity.VolunteerReview1;
-import com.kukertone.kukertone_be.domain.volunteerReview2.entity.VolunteerReview2;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;

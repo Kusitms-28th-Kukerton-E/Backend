@@ -1,6 +1,7 @@
 package com.kukertone.kukertone_be.domain.article.entity;
 
 import com.kukertone.kukertone_be.domain.article.Category;
+import com.kukertone.kukertone_be.domain.organization.entity.Organization;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,6 +34,10 @@ public class Article {
     private String people;
 
     private String st;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organization_id")
+    private Organization organization;
 
     @Enumerated(EnumType.STRING)
     private Category category;

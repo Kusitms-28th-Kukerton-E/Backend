@@ -4,8 +4,6 @@ import com.kukertone.kukertone_be.domain.member.entity.Member;
 import com.kukertone.kukertone_be.domain.member.entity.Role;
 import com.kukertone.kukertone_be.domain.organization.entity.Organization;
 import com.kukertone.kukertone_be.domain.volunteer.entity.Sex;
-import com.kukertone.kukertone_be.domain.volunteer.entity.Volunteer;
-import com.kukertone.kukertone_be.domain.volunteerReview2.entity.VolunteerReview2;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
