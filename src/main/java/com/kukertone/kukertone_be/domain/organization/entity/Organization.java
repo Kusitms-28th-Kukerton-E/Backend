@@ -20,14 +20,11 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 public class Organization extends Member {
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
-    private List<OrganizationReview> organizationReviews = new ArrayList<>();
-
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
-    private List<VolunteerReview1> volunteerReview1s = new ArrayList<>();
-
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
-    private List<Kid> kids = new ArrayList<>();
+    private String address;
+    private String activity;
+    private Long score1;
+    private Long score2;
+    private Long score3;
 
     @Builder(builderMethodName = "Organization")
     public Organization(String password, String email, String name, Role role) {
