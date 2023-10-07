@@ -31,19 +31,4 @@ public class ArticleController{
     public ArticleResponse get(@PathVariable Long articleId){
         return articleService.get(articleId);
     }
-
-    @PostMapping()
-    public void create(@RequestBody ArticleRequest articleRequest){
-        articleService.create(articleRequest);
-    }
-
-    @PutMapping("/{articleId}")
-    public void update(@PathVariable Long articleId, @RequestBody ArticleRequest articleRequest){
-        articleService.update(articleId, articleRequest);
-    }
-
-    @DeleteMapping("/{articleId}")
-    public void delete(@PathVariable Long articleId){
-        articleService.delete(articleId);
-    }
 }
