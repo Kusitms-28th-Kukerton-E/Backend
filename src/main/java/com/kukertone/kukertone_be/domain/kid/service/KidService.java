@@ -23,40 +23,16 @@ public class KidService {
     private final KidRepository kidRepository;
 
     public KidListResponse getAll() {
-//        List<KidResponse> kidResponses = kidRepository.findAll().stream()
-//                .map(KidResponse::new)
-//                .collect(Collectors.toList());
-//        return new KidListResponse(kidResponses);
-        return null;
+        List<KidResponse> kidResponses = kidRepository.findAll().stream()
+                .map(KidResponse::new)
+                .collect(Collectors.toList());
+        return new KidListResponse(kidResponses);
     }
 
     public KidResponse get(Long kidId) {
-//        Kid kid = kidRepository.findById(kidId)
-//                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다"));
-//        return new KidResponse(kid);
-        return null;
+        Kid kid = kidRepository.findById(kidId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 데이터입니다"));
+        return new KidResponse(kid);
     }
 
-    public void create(KidRequest kidRequest) {
-//        Kid kid = Kid.builder()
-//                .title(kidRequest.getTitle())
-//                .content(kidRequest.getContent())
-//                .category(kidRequest.getCategory())
-//                .organization(null)//수정해야함
-//                .build();
-//        kidRepository.save(kid);
-    }
-
-    @Transactional
-    public void update(Long kidId, KidRequest kidRequest) {
-//        Kid kid = kidRepository.findById(kidId)
-//                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 데이터입니다"));
-//        kid.update(kidRequest.getTitle(), kidRequest.getContent(), kidRequest.getCategory());
-    }
-
-    public void delete(Long kidId) {
-//        Kid kid = kidRepository.findById(kidId)
-//                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 데이터입니다"));
-//        kidRepository.delete(kid);
-    }
 }
