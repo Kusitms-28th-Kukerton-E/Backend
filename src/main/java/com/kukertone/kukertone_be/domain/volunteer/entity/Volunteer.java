@@ -20,20 +20,28 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 public class Volunteer extends Member {
-    @OneToMany(mappedBy = "volunteer", cascade = CascadeType.ALL)
-    private List<OrganizationReview> organizationReviews = new ArrayList<>();
+    private String image;
 
-    @OneToMany(mappedBy = "volunteer", cascade = CascadeType.ALL)
-    private List<ArticleWithVolunteer> articleWithVolunteers = new ArrayList<>();
+    private Long age;
 
-    @OneToMany(mappedBy = "volunteer", cascade = CascadeType.ALL)
-    private List<VolunteerReview1> volunteerReview1s = new ArrayList<>();
+    private Sex sex;
 
-    @OneToMany(mappedBy = "volunteer", cascade = CascadeType.ALL)
-    private List<Kid> kids = new ArrayList<>();
+    private String place;
 
-    @OneToMany(mappedBy = "volunteer", cascade = CascadeType.ALL)
-    private List<VolunteerReview2> volunteerReview2s = new ArrayList<>();
+    private String school;
+
+    private String major;
+
+    private Long score1;
+    private Long score2;
+    private Long score3;
+
+    private String vmsId1;
+    private String vmsId2;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organization_id")
+    private Organization organization;
 
     @Builder(builderMethodName = "Volunteer")
     public Volunteer(String password, String email, String name, Role role) {
