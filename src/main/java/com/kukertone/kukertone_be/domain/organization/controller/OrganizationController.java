@@ -22,19 +22,4 @@ public class OrganizationController {
     public OrganizationResponse get(@PathVariable Long organizationId){
         return organizationService.get(organizationId);
     }
-
-    @PostMapping()
-    public void create(@RequestBody OrganizationRequest organizationRequest){
-        organizationService.create(organizationRequest);
-    }
-
-    @PutMapping("/{organizationId}")
-    public void update(@PathVariable Long organizationId, @RequestBody OrganizationRequest organizationRequest){
-        organizationService.update(organizationId, organizationRequest);
-    }
-
-    @DeleteMapping("/{organizationId}")
-    public void delete(@PathVariable Long organizationId){
-        organizationService.delete(organizationId);
-    }
 }

@@ -51,28 +51,28 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
         MvcRequestMatcher.Builder mvcMatcherBuilder = new MvcRequestMatcher.Builder(introspector);
         http
-            .formLogin(formLogin -> formLogin.disable())
-            .httpBasic(httpBasic -> httpBasic.disable())
-            .csrf(csrf -> csrf.disable())
-            .cors(withDefaults())
-            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(request ->
-                request.requestMatchers(mvcMatcherBuilder.pattern("/auth/login")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/auth/join")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/css/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/js/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/images/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/error")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/swagger-ui/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/swagger-resources/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/v3/api-docs/**")).permitAll()
-                    .requestMatchers(mvcMatcherBuilder.pattern("/api/articles/**")).permitAll()
-                    .anyRequest().authenticated())
-            .addFilterAfter(customJsonUsernamePasswordAuthenticationFilter(), LogoutFilter.class)
-            .addFilterBefore(jwtAuthenticationProcessingFilter(), CustomJsonAuthenticationFilter.class)
-            .exceptionHandling(exception -> exception.accessDeniedHandler(jwtAccessDeniedHandler)
-                .authenticationEntryPoint(jwtAuthenticationEntryPoint));
+                .formLogin(formLogin -> formLogin.disable())
+                .httpBasic(httpBasic -> httpBasic.disable())
+                .csrf(csrf -> csrf.disable())
+                .cors(withDefaults())
+                .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(request ->
+                        request.requestMatchers(mvcMatcherBuilder.pattern("/auth/login")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/auth/join")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/css/**")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/js/**")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/images/**")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/error")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/swagger-ui/**")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/swagger-resources/**")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/v3/api-docs/**")).permitAll()
+                                .requestMatchers(mvcMatcherBuilder.pattern("/api/**")).permitAll()
+                                .anyRequest().authenticated())
+                .addFilterAfter(customJsonUsernamePasswordAuthenticationFilter(), LogoutFilter.class)
+                .addFilterBefore(jwtAuthenticationProcessingFilter(), CustomJsonAuthenticationFilter.class)
+                .exceptionHandling(exception -> exception.accessDeniedHandler(jwtAccessDeniedHandler)
+                        .authenticationEntryPoint(jwtAuthenticationEntryPoint));
 
         return http.build();
     }
@@ -103,7 +103,7 @@ public class SecurityConfig {
     @Bean
     public CustomJsonAuthenticationFilter customJsonUsernamePasswordAuthenticationFilter() {
         CustomJsonAuthenticationFilter customJsonUsernamePasswordLoginFilter
-            = new CustomJsonAuthenticationFilter(objectMapper);
+                = new CustomJsonAuthenticationFilter(objectMapper);
         customJsonUsernamePasswordLoginFilter.setAuthenticationManager(authenticationManager());
         customJsonUsernamePasswordLoginFilter.setAuthenticationSuccessHandler(loginSuccessHandler());
         customJsonUsernamePasswordLoginFilter.setAuthenticationFailureHandler(loginFailureHandler());
