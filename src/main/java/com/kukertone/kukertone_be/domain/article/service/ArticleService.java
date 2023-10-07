@@ -1,5 +1,6 @@
 package com.kukertone.kukertone_be.domain.article.service;
 
+import com.kukertone.kukertone_be.domain.article.Category;
 import com.kukertone.kukertone_be.domain.article.dto.request.ArticleRequest;
 import com.kukertone.kukertone_be.domain.article.dto.response.ArticleListResponse;
 import com.kukertone.kukertone_be.domain.article.dto.response.ArticleResponse;
@@ -51,5 +52,12 @@ public class ArticleService {
         Article article = articleRepository.findById(articleId)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 데이터입니다"));
         articleRepository.delete(article);
+    }
+
+    public ArticleListResponse getAllByCategory(Category category) {
+        List<ArticleResponse> articleResponses = articleRepository.findByCategory(category).stream()
+                .map(ArticleResponse::new)
+                .collect(Collectors.toList());
+        return new ArticleListResponse(articleResponses);
     }
 }

@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Member {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	protected Long id;
 
 	protected String password;

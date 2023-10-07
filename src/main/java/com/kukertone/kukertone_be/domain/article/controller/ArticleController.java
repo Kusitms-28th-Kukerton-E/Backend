@@ -1,5 +1,6 @@
 package com.kukertone.kukertone_be.domain.article.controller;
 
+import com.kukertone.kukertone_be.domain.article.Category;
 import com.kukertone.kukertone_be.domain.article.dto.request.ArticleRequest;
 import com.kukertone.kukertone_be.domain.article.dto.response.ArticleListResponse;
 import com.kukertone.kukertone_be.domain.article.dto.response.ArticleResponse;
@@ -13,31 +14,36 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/articles")
-public class ArticleController{
+public class ArticleController {
     private final ArticleService articleService;
 
     @GetMapping()
-    public ArticleListResponse getAll(){
+    public ArticleListResponse getAll() {
         return articleService.getAll();
     }
 
     @GetMapping("/{articleId}")
-    public ArticleResponse get(@PathVariable Long articleId){
+    public ArticleResponse get(@PathVariable Long articleId) {
         return articleService.get(articleId);
     }
 
+    @GetMapping("/{articleCategory}")
+    public ArticleListResponse getAllByCategory(@PathVariable Category category) {
+        return articleService.getAllByCategory(category);
+    }
+
     @PostMapping()
-    public void create(@RequestBody ArticleRequest articleRequest){
+    public void create(@RequestBody ArticleRequest articleRequest) {
         articleService.create(articleRequest);
     }
 
     @PutMapping("/{articleId}")
-    public void update(@PathVariable Long articleId, @RequestBody ArticleRequest articleRequest){
+    public void update(@PathVariable Long articleId, @RequestBody ArticleRequest articleRequest) {
         articleService.update(articleId, articleRequest);
     }
 
     @DeleteMapping("/{articleId}")
-    public void delete(@PathVariable Long articleId){
+    public void delete(@PathVariable Long articleId) {
         articleService.delete(articleId);
     }
 }

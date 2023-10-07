@@ -38,6 +38,7 @@ public class Article {
     @JoinColumn(name = "organization_id")
     private Organization organization;
 
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
