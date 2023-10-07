@@ -26,19 +26,4 @@ public class KidController {
     public KidResponse get(@PathVariable Long kidId){
         return kidService.get(kidId);
     }
-
-    @PostMapping()
-    public void create(@RequestBody KidRequest kidRequest){
-        kidService.create(kidRequest);
-    }
-
-    @PutMapping("/{kidId}")
-    public void update(@PathVariable Long kidId, @RequestBody KidRequest kidRequest){
-        kidService.update(kidId, kidRequest);
-    }
-
-    @DeleteMapping("/{kidId}")
-    public void delete(@PathVariable Long kidId){
-        kidService.delete(kidId);
-    }
 }
