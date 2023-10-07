@@ -1,7 +1,12 @@
 package com.kukertone.kukertone_be.domain.member.repository;
 
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
-@Repository
-public interface MemberRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.kukertone.kukertone_be.domain.member.entity.Member;
+
+public interface MemberRepository extends JpaRepository<Member, Long> {
+	Boolean existsByEmail(String email);
+	Optional<Member> findByEmail(String Email);
 }
