@@ -26,6 +26,8 @@ public class Kid extends Member {
 
     private String description;
 
+    private String image;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organization_id")
     private Organization organization;

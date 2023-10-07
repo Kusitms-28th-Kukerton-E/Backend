@@ -21,12 +21,15 @@ public class KidResponse {
 
     private String description;
 
+    private String image;
+
     public KidResponse(Kid kid) {
-        this.id=kid.getId();
+        this.id = kid.getId();
         this.name = kid.getName();
         this.age = kid.getAge();
         this.sex = kid.getSex();
         this.place = kid.getPlace();
-        this.description=kid.getDescription();
+        this.description = kid.getDescription();
+        this.image = kid.getImage();
     }
 }
