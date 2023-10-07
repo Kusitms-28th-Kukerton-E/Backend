@@ -1,10 +1,6 @@
 package com.kukertone.kukertone_be.domain.article.entity;
 
 import com.kukertone.kukertone_be.domain.article.Category;
-import com.kukertone.kukertone_be.domain.articlewithvolunteer.entity.ArticleWithVolunteer;
-import com.kukertone.kukertone_be.domain.member.entity.Member;
-import com.kukertone.kukertone_be.domain.organization.entity.Organization;
-import com.kukertone.kukertone_be.domain.organizationReview.entity.OrganizationReview;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -40,9 +36,6 @@ public class Article {
 
     @Enumerated(EnumType.STRING)
     private Category category;
-
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    private List<ArticleWithVolunteer> articleWithVolunteers = new ArrayList<>();
 
     @Builder
     public Article(String title, Long hour, Category category) {

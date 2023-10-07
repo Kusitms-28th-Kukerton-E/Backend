@@ -2,7 +2,6 @@ package com.kukertone.kukertone_be.domain.article.dto.response;
 
 import com.kukertone.kukertone_be.domain.article.entity.Article;
 import com.kukertone.kukertone_be.domain.article.Category;
-import com.kukertone.kukertone_be.domain.articlewithvolunteer.entity.ArticleWithVolunteer;
 import com.kukertone.kukertone_be.domain.organization.entity.Organization;
 
 import lombok.Getter;
