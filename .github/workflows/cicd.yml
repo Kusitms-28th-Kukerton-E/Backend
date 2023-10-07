@@ -36,7 +36,7 @@ jobs:
       - name: Create application-dev.yml
         env:
           APPLICATION_SECRET: ${{secrets.APPLICATION_DEV}}
-        run: echo $APPLICATION_SECRET > src/main/resources/application-dev.yml
+        run: echo $APPLICATION_SECRET | base64 --decode > src/main/resources/application-dev.yml
 
       - name: Create application-jwt.yml
         env:
