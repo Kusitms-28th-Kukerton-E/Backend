@@ -22,7 +22,7 @@ public class ArticleController{
         return articleService.getAll();
     }
 
-    @GetMapping("/{category}")
+    @GetMapping("/category/{category}")
     public ArticleListResponse getAll(@PathVariable Category category){
         return articleService.getAllByCategory(category);
     }
